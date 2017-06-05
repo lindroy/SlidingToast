@@ -7,6 +7,7 @@
     android:background="@android:color/holo_blue_light"
     android:textSize="18sp"
     android:id="@+id/tv_toast"
+    android:alpha="1.0"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:visibility="gone"

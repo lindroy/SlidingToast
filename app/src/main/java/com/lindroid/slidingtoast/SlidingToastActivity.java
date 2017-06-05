@@ -64,7 +64,7 @@ public class SlidingToastActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-//                tvToast.setVisibility(View.GONE);
+                tvToast.setVisibility(View.GONE);
             }
 
             @Override

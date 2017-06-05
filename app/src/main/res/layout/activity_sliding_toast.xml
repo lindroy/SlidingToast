@@ -3,11 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light"
     tools:context="com.lindroid.slidingtoast.SlidingToastActivity">
-
-    <include layout="@layout/sliding_toast" />
-
 
     <Button
         android:layout_width="wrap_content"
@@ -17,4 +13,5 @@
         android:text="显示SlidingToast"
         android:textAllCaps="false" />
 
+    <include layout="@layout/sliding_toast" />
 </RelativeLayout>
