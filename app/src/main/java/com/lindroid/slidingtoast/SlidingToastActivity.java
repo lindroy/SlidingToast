@@ -47,15 +47,18 @@ public class SlidingToastActivity extends AppCompatActivity {
         TranslateAnimation inAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, -1, Animation.RELATIVE_TO_SELF, 0);
         inAnimation.setDuration(500);
         inAnimation.setFillAfter(true);
+        //将该滑入的位移动画添加到动画集合
         animationSet.addAnimation(inAnimation);
         //滑出的动画
         TranslateAnimation outAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, -1);
         outAnimation.setDuration(500);
         outAnimation.setFillAfter(true);
         outAnimation.setStartOffset(2000);
+        //将该滑出的位移动画添加到动画集合
         animationSet.addAnimation(outAnimation);
+        //开启动画
         tvToast.startAnimation(animationSet);
-        //动画监听事件
+        //动画监听事件，动画完成之后重新让SlidingToast消失
         animationSet.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
