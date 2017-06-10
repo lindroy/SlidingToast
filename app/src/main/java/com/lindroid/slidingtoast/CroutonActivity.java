@@ -63,10 +63,10 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.btn_cfg:
                 Configuration.Builder cfg = new Configuration.Builder();
-                cfg.setInAnimation(0);
-                cfg.setOutAnimation(0);
-                cfg.setDuration(1000);
-                Crouton.showText(this, "子布局的Crouton", Style.CONFIRM, R.id.rl_root, cfg.build());
+                cfg.setInAnimation(R.anim.crouton_in);
+                cfg.setOutAnimation(R.anim.crouton_out);
+                cfg.setDuration(1500);
+                Crouton.showText(this, "修改配置后的Crouton", Style.CONFIRM, R.id.rl_root, cfg.build());
                 break;
         }
     }
