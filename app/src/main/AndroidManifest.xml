@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".SlidingToastActivity" />
-        <activity android:name=".CroutonActivity"></activity>
+        <activity
+            android:name=".CroutonActivity"
+            android:label="Crouton的使用"></activity>
     </application>
 
 </manifest>

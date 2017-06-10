@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rl_root"
     tools:context="com.lindroid.slidingtoast.CroutonActivity">
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rl_child"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"></RelativeLayout>
+
+    <Button
+        android:text="在根布局顶部弹出Crouton"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btn_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text="在子布局顶部弹出Crouton"
+        android:layout_above="@+id/btn_root"
+        android:id="@+id/btn_child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:id="@+id/btn_cfg"
+        android:layout_above="@+id/btn_child"
+        android:text="修改Crouton的配置"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
