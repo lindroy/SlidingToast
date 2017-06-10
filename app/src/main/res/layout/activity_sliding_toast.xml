@@ -14,4 +14,5 @@
         android:textAllCaps="false" />
 
     <include layout="@layout/sliding_toast" />
+
 </RelativeLayout>

@@ -16,4 +16,8 @@ public class MainActivity extends AppCompatActivity {
     public void slidingToastClick(View view) {
         startActivity(new Intent(this, SlidingToastActivity.class));
     }
+
+    public void croutonClick(View view) {
+        startActivity(new Intent(this, CroutonActivity.class));
+    }
 }

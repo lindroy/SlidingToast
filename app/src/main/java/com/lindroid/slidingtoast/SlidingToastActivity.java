@@ -53,6 +53,7 @@ public class SlidingToastActivity extends AppCompatActivity {
         TranslateAnimation outAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, -1);
         outAnimation.setDuration(500);
         outAnimation.setFillAfter(true);
+        //设置动画的启动时间，滑出动画在滑入动画的2秒后执行
         outAnimation.setStartOffset(2000);
         //将该滑出的位移动画添加到动画集合
         animationSet.addAnimation(outAnimation);

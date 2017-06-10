@@ -3,12 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.lindroid.slidingtoast.MainActivity">
 
     <Button
         android:onClick="slidingToastClick"
         android:textAllCaps="false"
         android:text="SlidingToast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="croutonClick"
+        android:text="Crouton使用"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

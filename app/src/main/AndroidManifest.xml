@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SlidingToastActivity"></activity>
+        <activity android:name=".SlidingToastActivity" />
+        <activity android:name=".CroutonActivity"></activity>
     </application>
 
 </manifest>
