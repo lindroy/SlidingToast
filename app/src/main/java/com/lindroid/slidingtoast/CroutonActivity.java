@@ -14,7 +14,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class CroutonActivity extends AppCompatActivity implements View.OnClickListener {
     private Context context;
-    private Button btnRoot, btnChild, btnCfg;
+    private Button btnRoot, btnChild, btnCfg, btnCustom;
     private TranslateAnimation inAnimation;
     private TranslateAnimation outAnimation;
 
@@ -23,11 +23,16 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crouton);
         context = CroutonActivity.this;
+        initUI();
+        initClickListener();
+        initAnimation();
+    }
+
+    private void initUI() {
         btnRoot = (Button) findViewById(R.id.btn_root);
         btnChild = (Button) findViewById(R.id.btn_child);
         btnCfg = (Button) findViewById(R.id.btn_cfg);
-        initClickListener();
-        initAnimation();
+        btnCustom = (Button) findViewById(R.id.btn_custom);
     }
 
     private void initAnimation() {
@@ -47,6 +52,7 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
         btnRoot.setOnClickListener(this);
         btnChild.setOnClickListener(this);
         btnCfg.setOnClickListener(this);
+        btnCustom.setOnClickListener(this);
     }
 
     @Override
@@ -61,11 +67,16 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.btn_child:
                 Crouton.makeText(this, "子布局的Crouton", Style.ALERT, R.id.rl_child).show();
                 break;
+            case R.id.btn_custom:
+                View view = View.inflate(context, R.layout.custom_crouton, null);
+                Crouton crouton = Crouton.make(this, view, R.id.rl_root);
+                crouton.show();
+                break;
             case R.id.btn_cfg:
                 Configuration.Builder cfg = new Configuration.Builder();
-                cfg.setInAnimation(R.anim.crouton_in);
-                cfg.setOutAnimation(R.anim.crouton_out);
-                cfg.setDuration(1500);
+                cfg.setInAnimation(R.anim.crouton_in)
+                        .setOutAnimation(R.anim.crouton_out)
+                        .setDuration(1500);
                 Crouton.showText(this, "修改配置后的Crouton", Style.CONFIRM, R.id.rl_root, cfg.build());
                 break;
         }

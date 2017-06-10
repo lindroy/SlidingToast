@@ -7,14 +7,16 @@
     android:id="@+id/rl_root"
     tools:context="com.lindroid.slidingtoast.CroutonActivity">
 
+
     <RelativeLayout
         android:id="@+id/rl_child"
         android:layout_marginTop="20dp"
         android:background="@android:color/darker_gray"
         android:layout_width="match_parent"
-        android:layout_height="200dp"></RelativeLayout>
+        android:layout_height="200dp" />
 
     <Button
+        android:textAllCaps="false"
         android:text="在根布局顶部弹出Crouton"
         android:layout_alignParentBottom="true"
         android:id="@+id/btn_root"
@@ -22,6 +24,7 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:textAllCaps="false"
         android:text="在子布局顶部弹出Crouton"
         android:layout_above="@+id/btn_root"
         android:id="@+id/btn_child"
@@ -30,10 +33,22 @@
 
 
     <Button
+        android:visibility="gone"
+        android:textAllCaps="false"
         android:id="@+id/btn_cfg"
         android:layout_above="@+id/btn_child"
         android:text="修改Crouton的配置"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:textAllCaps="false"
+        android:layout_above="@+id/btn_child"
+        android:id="@+id/btn_custom"
+        android:text="自定义Crouton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--<include layout="@layout/custom_crouton"/>-->
 
 </RelativeLayout>
