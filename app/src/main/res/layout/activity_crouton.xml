@@ -31,16 +31,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-
-    <Button
-        android:visibility="gone"
-        android:textAllCaps="false"
-        android:id="@+id/btn_cfg"
-        android:layout_above="@+id/btn_child"
-        android:text="修改Crouton的配置"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <Button
         android:textAllCaps="false"
         android:layout_above="@+id/btn_child"
@@ -49,6 +39,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <!--<include layout="@layout/custom_crouton"/>-->
+    <Button
+        android:textAllCaps="false"
+        android:id="@+id/btn_cfg"
+        android:layout_above="@+id/btn_custom"
+        android:text="修改Crouton的配置"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_style"
+        android:layout_above="@+id/btn_cfg"
+        android:textAllCaps="false"
+        android:text="修改Crouton的样式"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.lindroid.slidingtoast;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -14,7 +15,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class CroutonActivity extends AppCompatActivity implements View.OnClickListener {
     private Context context;
-    private Button btnRoot, btnChild, btnCfg, btnCustom;
+    private Button btnRoot, btnChild, btnCfg, btnCustom, btnStyle;
     private TranslateAnimation inAnimation;
     private TranslateAnimation outAnimation;
 
@@ -33,6 +34,7 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
         btnChild = (Button) findViewById(R.id.btn_child);
         btnCfg = (Button) findViewById(R.id.btn_cfg);
         btnCustom = (Button) findViewById(R.id.btn_custom);
+        btnStyle = (Button) findViewById(R.id.btn_style);
     }
 
     private void initAnimation() {
@@ -53,6 +55,7 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
         btnChild.setOnClickListener(this);
         btnCfg.setOnClickListener(this);
         btnCustom.setOnClickListener(this);
+        btnStyle.setOnClickListener(this);
     }
 
     @Override
@@ -60,9 +63,10 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.btn_root:
                 Crouton.makeText(this,
-                        "根布局的Crouton",
-                        Style.INFO,
-                        R.id.rl_root).show();
+                        "根布局的Crouton", //Crouton要显示的文字
+                        Style.INFO, //Crouton的样式
+                        R.id.rl_root) //显示Crouton的布局ID，不写时默认为根布局
+                        .show();
                 break;
             case R.id.btn_child:
                 Crouton.makeText(this, "子布局的Crouton", Style.ALERT, R.id.rl_child).show();
@@ -79,6 +83,25 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
                         .setDuration(1500);
                 Crouton.showText(this, "修改配置后的Crouton", Style.CONFIRM, R.id.rl_root, cfg.build());
                 break;
+            case R.id.btn_style:
+                Style.Builder sb = new Style.Builder();
+                sb.setBackgroundColor(android.R.color.black) //背景颜色
+                        .setTextColor(android.R.color.holo_orange_light)//字体颜色
+                        .setTextSize(18) //字体大小
+                        .setTextShadowColor(android.R.color.white) //字体阴影颜色
+                        .setTextShadowRadius(12) //字体阴影半径
+                        .setHeight(120) //Crouton高度
+                        .setGravity(Gravity.CENTER) //设置文字居中
+                        .setFontName("Ponsi-Regular.otf")//设置字体，直接输入字体名称的字符串
+                ;
+                Crouton.showText(this, "This is a Crouton", sb.build());
+                break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Crouton.cancelAllCroutons();
     }
 }
