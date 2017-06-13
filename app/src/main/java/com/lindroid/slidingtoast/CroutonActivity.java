@@ -15,7 +15,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class CroutonActivity extends AppCompatActivity implements View.OnClickListener {
     private Context context;
-    private Button btnRoot, btnChild, btnCfg, btnCustom, btnStyle;
+    private Button btnRoot, btnChild, btnCfg, btnCustom, btnStyle, btnCancel;
     private TranslateAnimation inAnimation;
     private TranslateAnimation outAnimation;
 
@@ -35,6 +35,7 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
         btnCfg = (Button) findViewById(R.id.btn_cfg);
         btnCustom = (Button) findViewById(R.id.btn_custom);
         btnStyle = (Button) findViewById(R.id.btn_style);
+        btnCancel = (Button) findViewById(R.id.btn_cancel);
     }
 
     private void initAnimation() {
@@ -56,6 +57,7 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
         btnCfg.setOnClickListener(this);
         btnCustom.setOnClickListener(this);
         btnStyle.setOnClickListener(this);
+        btnCancel.setOnClickListener(this);
     }
 
     @Override
@@ -104,12 +106,16 @@ public class CroutonActivity extends AppCompatActivity implements View.OnClickLi
                         .setDuration(1500);
                 Crouton.showText(this, "修改配置后的Crouton", Style.CONFIRM, R.id.rl_root, cfg.build());
                 break;
+            /**6、Crouton的销毁**/
+            case R.id.btn_cancel:
+                Crouton.cancelAllCroutons();
+                Crouton.clearCroutonsForActivity(this);
+                break;
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Crouton.cancelAllCroutons();
     }
 }
