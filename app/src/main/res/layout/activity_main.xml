@@ -14,6 +14,7 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:textAllCaps="false"
         android:onClick="croutonClick"
         android:text="Crouton使用"
         android:layout_width="match_parent"
